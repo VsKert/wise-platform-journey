@@ -92,7 +92,7 @@ export const PartnershipPipeline = () => {
               {/* Connector Line */}
               {index < stages.length - 1 && (
                 <div
-                  className={`absolute left-3 top-12 h-16 w-0.5 ${
+                  className={`absolute left-3 top-12 h-8 w-0.5 ${
                     stage.status === "completed" ? "bg-success" : "bg-border"
                   }`}
                 />
