@@ -58,7 +58,7 @@
 /* Hero Section */
 .contact-hero {
     background-color: white;
-    padding: 4rem 2rem;
+    padding: 1rem 2rem;
     text-align: center;
 }
 
@@ -83,6 +83,8 @@
 .form-section {
     background-color: #e8ebe7;
     padding: 4rem 2rem;
+    margin: 2rem;
+    border-radius: 1rem;
 }
 
 .form-container {

@@ -54,10 +54,16 @@ const Contact = () => {
             <Header type="auth" />
             {/* Hero Section */}
             <section className="contact-hero">
+                <img
+                    src="src/components/Wise_Tapestry_02_Australasia_SAsia_Aqua_Purple_Lg.jpg"
+                    alt="Logo"
+                    className="w-full max-h-28 object-fill rounded-lg border bg-card text-card-foreground shadow-sm"
+                />
+            </section>
+            <section className="contact-hero">
                 <h1>LET'S CONNECT</h1>
                 <p>
-                    Add your details below and we'll be in touch to discuss how a seamless
-                    integration with our infrastructure can help your organisation.
+                    Add your details below and we'll be in touch to discuss how a seamless integration with our infrastructure can help your organisation.
                 </p>
             </section>
 
@@ -326,7 +332,7 @@ const Contact = () => {
                         </p>
                     </div>
 
-                    <button type="submit" className="btn-submit">
+                    <button type="submit" className="btn-submit" onClick={() => navigate("/dashboard")}>
                         Get in touch
                     </button>
                 </form>
