@@ -1,73 +1,87 @@
-# Welcome to your Lovable project
+# Wise Platform – Enhanced Onboarding & Transparency Layer
+This repository contains the proposed solution for improving transparency, speed, and usability in the Wise Platform onboarding process. The goal is to provide potential partners with earlier access to sandbox tools, clearer onboarding status visibility, and a more streamlined experience from initial registration to full API integration.
+## Problem Statement
+Feedback from potential and current Wise Platform partners indicates several onboarding pain points:
+- Lack of transparency:
+The current onboarding steps and review stages are not clearly visible.
+Clients do not know where they stand or what is pending.
+- Late sandbox access:
+Sandbox access is provided only after manual review and when considered a “partner”—there is no preview environment.
+This slows down early experimentation and technical exploration.
+- Slow onboarding process:
+Multiple steps happen manually or without client visibility.
+Review cycles are opaque and can delay integration.
+## Objective
+To introduce a self-service onboarding dashboard that enhances transparency, accelerates technical evaluation, and improves partner satisfaction.
+### This project proposes:
+#### Early sandbox access:
+* Right after registration, clients receive limited sandbox API tokens to explore the platform.
+#### Visible pipeline / onboarding status:
+##### A clear, step-by-step progress bar showing:
+  * where the partner is in the review process,
+  * what documents are pending,
+  * what steps come next.
+#### Access to key platform information
+* computing credits used
+* visible APIs available for subscription
+* visible quotas and rate limits
+* upcoming or required onboarding steps
+* optional notifications (email / dashboard alerts)
+#### Streamlined registration
+* A new registration form inspired by Wise Platform’s existing partnership form (https://wise.com/platform/contact), extended to also create an account for dashboard login.
+### Proposed Solution Overview
+* This repository contains the architecture, design, and implementation details of a new Onboarding & Transparency Layer that sits beside the existing Wise Platform infrastructure.
+* High-Level Features
+* Self-service onboarding dashboard
+* Partner sandbox environment unlocked at registration
+* Automated account creation via enhanced form
+* Progress-tracking UI (“pipeline / status bar”)
+* API visibility panel
+* Usage metrics (computing credits / limits)
+* Document submission & certificate upload after partnership agreement
 
-## Project info
 
-**URL**: https://lovable.dev/projects/2d61befd-3b1a-42dd-81d5-bfc9b507ed15
+### End-to-End Workflow
 
-## How can I edit this code?
+ This workflow uses the existing Wise documentation and platform logic while improving transparency and access.
+1. Partner completes registration form
+- Based on the existing Wise partnership form (https://wise.com/platform/contact)
+- Extended to capture login credentials
+- Creates an organizational account in the system
+2. Account automatically created
+- The company receives dashboard login credentials
+- They gain immediate access to the Onboarding Dashboard
+3. Immediate sandbox preview access
 
-There are several ways of editing your application.
+The dashboard provides:
+* limited API trial tokens
+* documentation
+* basic testing environment
+* No manual review required for initial sandbox preview
+5. Onboarding Dashboard becomes the single source of truth
+  
+A pipeline-style interface shows:
+* Registration
+* Business Verification / KYC
+* Partnership Review
+* Agreement Negotiation
+* Technical Setup
+* Certificate Upload
+* API Credentials Issued
+* Go-Live
+* Clients see what is pending and estimated timelines.
+6. Partnership terms discussion & signing
+- Partners negotiate and sign terms
+- Status updates are reflected in the dashboard
 
-**Use Lovable**
+7. Extended sandbox + API credential issuance
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2d61befd-3b1a-42dd-81d5-bfc9b507ed15) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/2d61befd-3b1a-42dd-81d5-bfc9b507ed15) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+ Once approved, clients can:
+- add certificates
+- configure webhooks
+- request additional APIs
+- access full sandbox
+8. Final testing & go-live
+* Client completes integration
+* Wise reviews configuration (as per KYC/partner account guidelines: https://docs.wise.com/guides/product/kyc/partner-accounts)
+* Production credentials issued
