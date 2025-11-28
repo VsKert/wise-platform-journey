@@ -86,19 +86,10 @@ export const ApiCatalog = () => {
         {/* Batch Transfers */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl">Batch Transfers</CardTitle>
-            <CardDescription>
-              Group multiple payments together for efficient processing
-            </CardDescription>
+            <CardTitle className="text-2xl">Postman collection</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                Many of our partner's customers need to make multiple payments at once. Batch Groups enable
-                you to group up to {batchInfo.maxTransfers.toLocaleString()} transfers under a single reference,
-                allowing all payments to be funded at once.
-              </p>
-
               <div className="bg-muted/50 rounded-lg p-4 space-y-3">
                 <h4 className="font-semibold text-sm">We've created a Postman collection to help you test your integrations easily! It includes:</h4>
                 <ul className="space-y-2">

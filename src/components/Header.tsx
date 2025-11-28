@@ -19,7 +19,7 @@ const Header = ({ type }) => {
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center space-x-2">
-                    <img src="src/components/image.svg" alt="Logo" />
+                    <img src="src/components/image.svg" alt="Logo" onClick={() => navigate("/")}/>
                     {companyName && (
                         <span className="text-sm text-muted-foreground">
               {companyName}
