@@ -14,6 +14,7 @@ export const CsrGenerator = () => {
     commonName: "",
     organization: "",
     country: "",
+    invalidatePrevious: false,
     keySize: "2048"
   });
 
@@ -120,7 +121,20 @@ cm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEZMBcGA1UEChMQ${btoa(formData.organization
             </div>
           </div>
         </div>
-
+        <div className="flex items-center space-x-2">
+          <input
+            id="invalidatePrevious"
+            type="checkbox"
+            checked={formData.invalidatePrevious}
+            onChange={(e) =>
+              setFormData({ ...formData, invalidatePrevious: e.target.checked })
+            }
+            className="w-4 h-4"
+          />
+          <Label htmlFor="invalidatePrevious" className="text-sm">
+            Invalidate previous keys
+          </Label>
+        </div>
         <Button className="w-full" onClick={handleGenerate}>
           <Download className="mr-2 h-4 w-4" />
           Generate & Download CSR
