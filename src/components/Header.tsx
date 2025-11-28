@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { LogOut, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { NotificationButton } from "@/components/notifications/NotificationButton";
 
 const Header = ({ type }) => {
     const navigate = useNavigate();
@@ -41,10 +42,13 @@ const Header = ({ type }) => {
                     )}
 
                     {type === "auth" && (
-                        <Button variant="outline" onClick={handleLogout}>
-                            <LogOut className="mr-2 h-4 w-4" />
-                            Logout
-                        </Button>
+                        <>
+                            <NotificationButton />
+                            <Button variant="outline" onClick={handleLogout}>
+                                <LogOut className="mr-2 h-4 w-4" />
+                                Logout
+                            </Button>
+                        </>
                     )}
                 </div>
             </div>
