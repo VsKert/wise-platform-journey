@@ -10,54 +10,59 @@ import { SupportChat } from "@/components/dashboard/SupportChat";
 import Header from "@/components/Header.tsx";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const [showSupport, setShowSupport] = useState(false);
-  const companyName = localStorage.getItem("companyName") || "Your Company";
+    const navigate = useNavigate();
+    const [showSupport, setShowSupport] = useState(false);
+    const companyName = localStorage.getItem("companyName") || "Your Company";
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/");
+    };
 
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <Header type="auth" />
+    return (
+        <div className="min-h-screen bg-background">
+            {/* Header */}
+            <Header type="auth" />
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8 space-y-8">
-        <div className="space-y-2">
-          <h2 className="text-3xl font-bold">Partnership Dashboard</h2>
-          <p className="text-muted-foreground">
-            Track your onboarding progress and access development tools
-          </p>
+            {/* Main Content */}
+            <main className="container mx-auto px-4 py-8 space-y-8">
+                <img
+                    src="src/components/Wise_Tapestry_07_NAmerica_EAsia_Green_Blue_Yellow_Lg.jpg"
+                    alt="Logo"
+                    className="w-full max-h-28 object-fill rounded-lg border bg-card text-card-foreground shadow-sm"
+                />
+                <div className="space-y-2">
+                    <h2 className="text-3xl font-bold">Partnership Dashboard</h2>
+                    <p className="text-muted-foreground">
+                        Track your onboarding progress and access development tools
+                    </p>
+                </div>
+
+                {/* Partnership Pipeline */}
+                <PartnershipPipeline/>
+
+                {/* API Catalog */}
+                <ApiCatalog/>
+
+                {/* Two Column Layout */}
+                <div className="grid md:grid-cols-2 gap-8">
+                    <SandboxAccess />
+                    <CsrGenerator />
+                </div>
+            </main>
+
+            {/* Support Chat Toggle */}
+            <Button
+                className="fixed bottom-6 right-6 rounded-full h-14 w-14 shadow-lg"
+                onClick={() => setShowSupport(!showSupport)}
+            >
+                <span className="text-2xl">💬</span>
+            </Button>
+
+            {/* Support Chat */}
+            {showSupport && <SupportChat onClose={() => setShowSupport(false)} />}
         </div>
-
-        {/* Partnership Pipeline */}
-        <PartnershipPipeline />
-
-        {/* API Catalog */}
-        <ApiCatalog />
-
-        {/* Two Column Layout */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <SandboxAccess />
-          <CsrGenerator />
-        </div>
-      </main>
-
-      {/* Support Chat Toggle */}
-      <Button
-        className="fixed bottom-6 right-6 rounded-full h-14 w-14 shadow-lg"
-        onClick={() => setShowSupport(!showSupport)}
-      >
-        <span className="text-2xl">💬</span>
-      </Button>
-
-      {/* Support Chat */}
-      {showSupport && <SupportChat onClose={() => setShowSupport(false)} />}
-    </div>
-  );
+    );
 };
 
 export default Dashboard;
