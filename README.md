@@ -85,3 +85,46 @@ A pipeline-style interface shows:
 * Client completes integration
 * Wise reviews configuration (as per KYC/partner account guidelines: https://docs.wise.com/guides/product/kyc/partner-accounts)
 * Production credentials issued
+
+# What's next?
+## Implement backend
+
+The current solution is a static frontend implementation, meant to be used as an idea.
+
+Immediate to-do:
+- Tie register form to an actual Wise database
+- Create backend logic for notifications
+
+## API Credit Service implementation
+siia joonis lisada ka pärast
+
+### Why Credits?
+Under our changes, in order to provide sandboxing capabilities from the start to shorten the time from onboarding to production, each new registration would immediately (or shortly after registration) gain access to the Sandbox API.
+However, giving each new registration infinite access to Sandbox API calls will eventually slow down servers and give an outlet to bad actors to abuse.
+
+This is why a credit system should be implemented to limit API calls. It limits the amount of API calls users can make, while preserving the chance for new registrations to immediately experiment and learn about Wise API.
+
+Implementing a credit system for API calls, where each call is given a credit cost, that is deducted from the sandbox user's credit total.
+
+### API Credit Service Workflow
+
+Upon registration, each new registered account (company) is given a set amount of credits to use on Sandbox API calls.
+
+After adding and validating the account's Certificates, each Sandbox API call goes through an APICreditService route, which keeps track of the account's Credit total and approves / denies requests, while subtracting Credits on successful API calls.
+
+If the account is successfully validated and has enough credits to complete the action, the request is forwarded into the Sandbox API gateway. This way traffic to the actual Sandbox API is lessened, as invalid requests never reach the actual gateway.
+
+
+### How can Credits be used outside of sandbox?
+
+Implementing a Credit Service for the Sandbox API would also allow this system to be implemented into the production API in the future, letting smaller companies that would otherwise be too small to properly use the Wise Platform API use the API in a more limited way.
+
+## Satisfaction & Value
+In order to evaluate user satisfaction and journey monitoring should be implemented for the application.
+
+### Onboarding time
+- Monitor time from first user registration and form submission to first API call in production
+
+### Journey
+- Monitor user clicks to find common points of failure in user experience
+- Essential for finding bugs that prevent users from completing workflow and / or underutilised feature
