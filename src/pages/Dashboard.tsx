@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { ApiCatalog } from "@/components/dashboard/ApiCatalog";
 import { SandboxAccess } from "@/components/dashboard/SandboxAccess";
 import { CsrGenerator } from "@/components/dashboard/CsrGenerator";
 import { SupportChat } from "@/components/dashboard/SupportChat";
+import Header from "@/components/Header.tsx";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -21,25 +22,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">W</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold">Wise Platform</h1>
-                <p className="text-sm text-muted-foreground">{companyName}</p>
-              </div>
-            </div>
-            <Button variant="outline" onClick={handleLogout}>
-              <LogOut className="mr-2 h-4 w-4" />
-              Logout
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header type="auth" />
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8 space-y-8">
